@@ -11,6 +11,10 @@ class LayoutConfig {
   static double blockVertical = 0;
   static double defaultMargin = 0;
   static double statusBarHeight = 0;
+  static double safeAreaHorizontal = 0;
+  static double safeAreaVertical = 0;
+  static double safeBlockHorizontal = 0;
+  static double safeBlockVertical = 0;
 
   void init(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -23,6 +27,10 @@ class LayoutConfig {
     blockVertical = blockVertical / 100;
     defaultMargin = 20;
     statusBarHeight = mediaQuery.padding.top;
+    safeAreaHorizontal = mediaQuery.padding.left + mediaQuery.padding.right;
+    safeAreaVertical = mediaQuery.padding.top + mediaQuery.padding.bottom;
+    safeBlockHorizontal = (screenWidth - safeAreaHorizontal) / 100;
+    safeBlockVertical = (screenHeight - safeAreaVertical) / 100;
   }
 }
 
